@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import HealthConditions from './pages/HealthConditions'; // Corrected spelling
+import HealthConditions from './pages/HealthConditions'; 
 import BMICalculator from './pages/BMICalculator';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <nav>
         <ul>
           <li>
