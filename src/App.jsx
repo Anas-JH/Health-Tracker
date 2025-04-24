@@ -3,33 +3,52 @@ import { Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import HealthConditions from './pages/HealthConditions'; 
 import BMICalculator from './pages/BMICalculator';
+import { Container, Navbar, Nav } from 'react-bootstrap'; 
+import { LinkContainer } from 'react-router-bootstrap'; 
 import './App.css';
 
 function App() {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/conditions">Health Conditions</Link>
-          </li>
-          <li>
-            <Link to="/bmi-calculator">BMI Calculator</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="d-flex flex-column min-vh-100"> 
+      <Navbar bg="primary" variant="dark" expand="lg" sticky="top"> 
+        <Container> 
+          <LinkContainer to="/">
+            <Navbar.Brand>St Mary's Health</Navbar.Brand>
+          </LinkContainer>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <LinkContainer to="/">
+                <Nav.Link>Home</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/conditions">
+                <Nav.Link>Health Conditions</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/bmi-calculator">
+                <Nav.Link>BMI Calculator</Nav.Link>
+              </LinkContainer>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-      <main>
+      <Container as="main" className="py-4 flex-grow-1"> 
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/conditions" element={<HealthConditions />} />
           <Route path="/bmi-calculator" element={<BMICalculator />} />
         </Routes>
-      </main>
+      </Container>
+
+      {/*Footer*/}
+      <footer className="mt-auto py-3 bg-light"> 
+        <Container>
+          <p className="text-center text-muted mb-0"> 
+            © {new Date().getFullYear()} St Mary's Health Hub
+          </p>
+        </Container>
+      </footer>
     </div>
-    );
+  );
 }
 export default App;

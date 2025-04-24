@@ -1,6 +1,6 @@
 import React from 'react';
+import { Card, ListGroup } from 'react-bootstrap'; 
 
-// Health Conditions Data 
 const healthConditionsData = [
   {
     title: "Common Cold",
@@ -32,36 +32,39 @@ const healthConditionsData = [
       "Ensure you are adequately hydrated."
     ]
   },
-
-
 ];
 
-function HealthConditionsPage() {
-    return (
-      <div className="page-content">
-        <h1>Common Health Conditions</h1>
-        <p>Below is a list of common health conditions with descriptions and general advice:</p>
-  
-        <ul style={{ listStyleType: 'none', paddingLeft: 0 }}> 
-          {healthConditionsData.map((condition, index) => (
-            <li key={index} style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '15px' }}> 
-              <h2>{condition.title}</h2>
-              <p>{condition.description}</p>
-              {condition.advice && condition.advice.length > 0 && (
-                <div>
-                  <h3>General Advice:</h3>
-                  <ul>
-                    {condition.advice.map((adviceItem, adviceIndex) => (
-                      <li key={adviceIndex}>{adviceItem}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
 
-export default HealthConditionsPage;
+function HealthConditions() {
+  return (
+    <div> 
+      <h1 className="mb-4">Common Health Conditions</h1>
+      <p className="lead mb-4">
+        Below is a list of common health conditions with descriptions and general advice:
+      </p>
+
+      {healthConditionsData.map((condition, index) => (
+        <Card key={index} className="mb-3"> 
+          <Card.Body>
+            <Card.Title as="h2">{condition.title}</Card.Title>
+            <Card.Text>{condition.description}</Card.Text>
+            {condition.advice && condition.advice.length > 0 && (
+              <> 
+                <h3 className="h5 mt-3">General Advice:</h3> 
+                <ListGroup variant="flush"> 
+                  {condition.advice.map((adviceItem, adviceIndex) => (
+                    <ListGroup.Item key={adviceIndex}>
+                      {adviceItem}
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </>
+            )}
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
+  );
+}
+
+export default HealthConditions; 
