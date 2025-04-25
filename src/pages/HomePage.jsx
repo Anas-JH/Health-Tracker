@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, ListGroup } from 'react-bootstrap'; 
+import NewsFeed from '../components/NewsFeed';
 
 function HomePage() {
   return (
@@ -35,6 +36,10 @@ function HomePage() {
           <Card.Text>
             Stay tuned for more features and resources coming soon!
           </Card.Text>
+        </section>
+
+        <section className="mb-4">
+          <NewsFeed />
         </section>
 
         <section> 
