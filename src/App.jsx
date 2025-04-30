@@ -3,6 +3,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import HealthConditions from './pages/HealthConditions'; 
 import BMICalculator from './pages/BMICalculator';
+import NutritionPage from './pages/NutritionPage';
 import { Container, Navbar, Nav } from 'react-bootstrap'; 
 import { LinkContainer } from 'react-router-bootstrap'; 
 import './App.css';
@@ -27,6 +28,9 @@ function App() {
               <LinkContainer to="/bmi-calculator">
                 <Nav.Link>BMI Calculator</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/nutrition">
+                <Nav.Link>Nutrition Search</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -37,6 +41,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/conditions" element={<HealthConditions />} />
           <Route path="/bmi-calculator" element={<BMICalculator />} />
+          <Route path="/nutrition" element={<NutritionPage />} />
         </Routes>
       </Container>
 
