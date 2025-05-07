@@ -1,20 +1,21 @@
 import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import HealthConditions from './pages/HealthConditions'; 
+import HealthConditions from './pages/HealthConditions';
 import BMICalculator from './pages/BMICalculator';
 import NutritionPage from './pages/NutritionPage';
 import ExercisesPage from './pages/ExercisesPage';
 import DashboardPage from './pages/DashboardPage';
-import { Container, Navbar, Nav } from 'react-bootstrap'; 
-import { LinkContainer } from 'react-router-bootstrap'; 
+import WellbeingPage from './pages/WellbeingPage';
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import './App.css';
 
 function App() {
   return (
-    <div className="d-flex flex-column min-vh-100"> 
-      <Navbar bg="primary" variant="dark" expand="lg" sticky="top"> 
-        <Container> 
+    <div className="d-flex flex-column min-vh-100">
+      <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
+        <Container>
           <LinkContainer to="/">
             <Navbar.Brand>St Mary's Health</Navbar.Brand>
           </LinkContainer>
@@ -26,6 +27,9 @@ function App() {
               </LinkContainer>
               <LinkContainer to="/dashboard">
                 <Nav.Link>Dashboard</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/wellbeing">
+                <Nav.Link>Well-being</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/conditions">
                 <Nav.Link>Health Conditions</Nav.Link>
@@ -44,7 +48,7 @@ function App() {
         </Container>
       </Navbar>
 
-      <Container as="main" className="py-4 flex-grow-1"> 
+      <Container as="main" className="py-4 flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/conditions" element={<HealthConditions />} />
@@ -52,13 +56,14 @@ function App() {
           <Route path="/nutrition" element={<NutritionPage />} />
           <Route path="/exercises" element={<ExercisesPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/wellbeing" element={<WellbeingPage />} />
         </Routes>
       </Container>
 
       {/*Footer*/}
-      <footer className="mt-auto py-3 bg-light"> 
+      <footer className="mt-auto py-3 bg-light">
         <Container>
-          <p className="text-center text-muted mb-0"> 
+          <p className="text-center text-muted mb-0">
             © {new Date().getFullYear()} St Mary's Health Hub
           </p>
         </Container>
