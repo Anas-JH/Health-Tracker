@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Form, InputGroup, ProgressBar } from 'react-bootstrap';
+import { FaFireAlt } from 'react-icons/fa';
 
 const CALORIE_STORAGE_KEY = 'healthHubCalorieIntake';
 const DAILY_CALORIE_GOAL = 2000; // Example goal
@@ -42,6 +43,7 @@ function CalorieTracker() {
   return (
     <Card>
       <Card.Body>
+        <FaFireAlt className="me-2 text-info" />
         <Card.Title>Calories Consumed</Card.Title>
         <Card.Text>
           Goal: {DAILY_CALORIE_GOAL} kcal per day.
