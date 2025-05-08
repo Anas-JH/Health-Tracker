@@ -1,51 +1,227 @@
+/* src/App.css */
+
 :root {
-  --primary-color: #0066cc;
-  --secondary-color: #4d94ff;
-  --accent-color: #ff6b6b;
-  --text-color: #333333;
-  --light-bg: #f5f7fa;
-  --border-color: #e1e5e9;
-  --success-color: #28a745;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --border-radius: 8px;
-  --transition: all 0.3s ease; 
+  --primary-color: #005EB8;
+  --secondary-color: #4c6272;
+  --accent-color: #00A9CE;
+  --success-color: #007F3B;
+  --warning-color: #FFB81C;
+  --danger-color: #DA291C;
+
+  --text-color: #212529;
+  --light-text-color: #ffffff;
+  --body-bg: #f0f4f5;
+  --card-bg: #ffffff;
+  --border-color: #AEB7BD;
+
+  --font-family-sans-serif: 'Roboto', Arial, sans-serif;
+  --base-font-size: 1rem;
+  --border-radius: 0.25rem; /* Bootstrap's default is often 0.375rem for BS5 */
+  --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --transition: all 0.2s ease-in-out;
 }
 
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--base-font-size);
   line-height: 1.6;
-  color: var(--text-color); 
-  background-color: var(--light-bg); 
+  color: var(--text-color);
+  background-color: var(--body-bg);
   margin: 0;
-  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
-  margin-top: 0;
+/* --- Bootstrap Overrides & Enhancements --- */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: #004a99; /* Darker shade of --primary-color */
+  border-color: #004185;   /* Even darker for border */
+}
+.btn-success { /* Example for success button like "Log Mood" */
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+.btn-success:hover {
+    background-color: #006a30; /* Darker shade of --success-color */
+    border-color: #005828;
 }
 
 
-
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+.bg-primary {
+  background-color: var(--primary-color) !important;
 }
 
-@media (max-width: 480px) {
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1.1rem; }
+.text-primary {
+  color: var(--primary-color) !important;
 }
 
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-top: 0; /* Usually good to reset top margin */
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+a:hover {
+  color: #008FB1; /* Darker shade of --accent-color */
+  text-decoration: underline;
+}
+
+/* Navbar specific styling */
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--light-text-color);
+  padding: 0.5rem 1rem; /* Ensure consistent padding */
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 0.85); /* Slightly brighter hover */
+  background-color: rgba(255, 255, 255, 0.15); /* Subtle background on hover */
+  border-radius: var(--border-radius);
+}
+.navbar-brand {
+  color: var(--light-text-color) !important;
+}
+.navbar-dark .navbar-nav .nav-link.active {
+  color: var(--primary-color); /* Active link text to contrast with highlight */
+  background-color: var(--light-text-color); /* Prominent background for active */
+  border-radius: var(--border-radius);
+  font-weight: 600; /* Make active link bold */
+}
+
+
+/* --- Component Specific Styles --- */
+
+/* Mood Tracker Buttons */
+.mood-button-group .btn {
+    margin: 0.25rem; /* Small margin around buttons when they wrap */
+    /* Ensure buttons have enough padding if text is long */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+/* Medication Reminder Pulse (Keep if you like it) */
 .pulse-danger {
   animation: pulse-animation 1.5s infinite;
 }
-
 @keyframes pulse-animation {
   0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
   70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
   100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 991.98px) { /* lg breakpoint in Bootstrap, when navbar collapses */
+    .navbar-collapse {
+        margin-top: 0.5rem; /* Add some space when navbar collapses */
+    }
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 0.6rem 1rem; /* Slightly larger tap targets for collapsed nav */
+    }
+    .navbar-dark .navbar-nav .nav-link.active {
+        /* Ensure active style is strong in collapsed nav */
+        background-color: var(--light-text-color);
+        color: var(--primary-color);
+    }
+}
+
+
+@media (max-width: 768px) { /* md breakpoint */
+  h1, .h1 { font-size: 2rem; }
+  h2, .h2 { font-size: 1.6rem; }
+  h3, .h3 { font-size: 1.3rem; }
+
+  /* Ensure main container has some padding */
+  .container, .container-fluid { /* Target Bootstrap containers */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) { /* sm breakpoint */
+  /* Mood Tracker: Buttons wrap and grow */
+  .mood-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align to start, or center */
+  }
+  .mood-button-group .btn {
+    flex-basis: calc(33.333% - 0.5rem); /* Try to fit 3 buttons per row, adjust calc if margins change */
+    flex-grow: 1;
+    margin-bottom: 0.5rem; /* Space below wrapped buttons */
+    /* Ensure text fits or adjust padding/font-size for very small buttons */
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  /* Mood Tracker: Entries stack better */
+  .mood-entry-item {
+    flex-direction: column !important; /* Stack content vertically */
+    align-items: flex-start !important; /* Align to start */
+  }
+  .mood-entry-item .mood-entry-details {
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 0.25rem; /* Add bottom margin when stacked */
+  }
+  .mood-entry-item .mood-entry-details .text-muted.ms-2 {
+    margin-left: 0 !important;
+    display: block;
+    font-size: 0.85rem;
+  }
+  .mood-entry-item .mood-entry-timestamp {
+    align-self: flex-start;
+    font-size: 0.8rem;
+  }
+
+  /* General form elements might need more space or smaller font */
+  .form-label {
+    font-size: 0.9rem;
+  }
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .btn { /* General button sizing for small screens */
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  h1, .h1 { font-size: 1.8rem; }
+  h2, .h2 { font-size: 1.4rem; }
+  h3, .h3 { font-size: 1.2rem; }
+}
+
+/* Further adjustments for very small screens like 320px if needed */
+@media (max-width: 360px) {
+    .mood-button-group .btn {
+        flex-basis: calc(50% - 0.5rem); /* Maybe 2 buttons per row */
+    }
 }
