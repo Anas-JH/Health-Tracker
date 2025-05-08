@@ -62,16 +62,15 @@ function NewsFeed() {
   }
 
   if (articles.length === 0) {
-      return <Alert variant="info">No health news articles found at the moment.</Alert>;
+    return <Alert variant="info">No health news articles found at the moment.</Alert>;
   }
 
   return (
     <div>
-      <h2 className="mb-4">Latest Health News</h2>
       {articles.map((article, index) => (
         <Card key={index} className="mb-3">
           {article.urlToImage && (
-            <Card.Img variant="top" src={article.urlToImage} alt={article.title} style={{ maxHeight: '250px', objectFit: 'cover' }}/>
+            <Card.Img variant="top" src={article.urlToImage} alt={article.title} style={{ maxHeight: '250px', objectFit: 'cover' }} />
           )}
           <Card.Body>
             <Card.Title>{article.title}</Card.Title>

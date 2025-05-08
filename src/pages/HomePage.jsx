@@ -1,54 +1,102 @@
 import React from 'react';
-import { Card, ListGroup } from 'react-bootstrap'; 
+import { Card, ListGroup, Row, Col } from 'react-bootstrap';
 import NewsFeed from '../components/NewsFeed';
 
 function HomePage() {
   return (
-    <Card>
+    <Card border="light">
       <Card.Body>
-        <section className="mb-4"> 
-          <Card.Title as="h1">Welcome to St Mary's Health Hub</Card.Title>
-          <Card.Text className="lead">
-            Your trusted resource for health and wellness information. We are dedicated to providing you with reliable and easy-to-understand resources to help you manage and improve your well-being.
+        <section className="mb-4 text-center bg-light p-4 rounded">
+          <h1 className="display-5">Welcome to St Mary's Health Hub</h1>
+          <p className="lead mt-3">
+            Your central resource for managing well-being, tracking progress, and finding reliable health information.
+          </p>
+        </section>
+
+        <section className="mb-5">
+          <h2 className="text-center mb-4">Our Mission</h2>
+          <Card.Text className="text-center col-md-8 mx-auto">
+            At St Mary's Health Hub, our mission is to empower you to take control of your health journey through accessible information and practical tools.
           </Card.Text>
         </section>
 
-        <section className="mb-4">
-          <h2>Our Mission</h2>
-          <Card.Text> 
-            At St Mary's Health Hub, our mission is to empower individuals to take control of their health journey. We believe that access to reliable health information and practical tools is essential for everyone.
-          </Card.Text>
-        </section>
-
-        <section className="mb-4">
-          <h2>Explore Our Resources</h2>
-          <Card.Text>
-            We offer a range of resources to support your health and wellness goals:
-          </Card.Text>
-          <ListGroup variant="flush" className="mb-3">
-            <ListGroup.Item>
-              <strong>Health Condition Information:</strong> Learn about common health conditions, their symptoms, and general advice on management.
+        <section className="mb-5">
+          <h2 className="text-center mb-4">Explore Our Features</h2>
+          <ListGroup variant="flush">
+            <ListGroup.Item action href="/dashboard" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>Dashboard:</strong> Track your daily water intake, calories consumed, and steps walked.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Manage Daily Goals
+                </Col>
+              </Row>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <strong>BMI Calculator:</strong> Calculate your Body Mass Index (BMI) to understand your weight status.
+            <ListGroup.Item action href="/wellbeing" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>Well-being & Reminders:</strong> Log your daily mood and set helpful medication reminders.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Support & Schedule
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item action href="/conditions" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>Health Condition Info:</strong> Learn about common conditions, symptoms, and general advice.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Information Resource
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item action href="/bmi-calculator" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>BMI Calculator:</strong> Calculate your Body Mass Index to understand your weight status.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Check Your BMI
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item action href="/nutrition" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>Nutrition Search:</strong> Find nutritional information for various food items.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Food Database Search
+                </Col>
+              </Row>
+            </ListGroup.Item>
+            <ListGroup.Item action href="/exercises" className="py-3">
+              <Row className="align-items-center">
+                <Col md={8}>
+                  <strong>Exercise Finder:</strong> Search for exercises based on muscle groups.
+                </Col>
+                <Col md={4} className="text-md-end text-muted small">
+                  Workout Ideas
+                </Col>
+              </Row>
             </ListGroup.Item>
           </ListGroup>
-          <Card.Text>
-            Stay tuned for more features and resources coming soon!
-          </Card.Text>
         </section>
 
-        <section className="mb-4">
+        <section className="mb-5">
+          <h2 className="mb-4">Latest Health News</h2>
           <NewsFeed />
         </section>
 
-        <section> 
+        <section className="text-center">
           <h2>Start Your Wellness Journey Today</h2>
           <Card.Text>
-            Navigate through our site to explore helpful information and tools. Remember, taking small steps each day can lead to significant improvements in your overall health and quality of life.
+            Navigate using the menu above to explore these tools and information. Small daily steps lead to lasting well-being.
           </Card.Text>
         </section>
-
 
       </Card.Body>
     </Card>
