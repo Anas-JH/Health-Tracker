@@ -59,7 +59,7 @@ function MoodTracker() {
                                 key={mood}
                                 variant={selectedMood === mood ? 'primary' : 'outline-secondary'}
                                 onClick={() => handleMoodSelect(mood)}
-                                className="mood-btn" 
+                                className="mood-btn"
                             >
                                 {mood}
                             </Button>

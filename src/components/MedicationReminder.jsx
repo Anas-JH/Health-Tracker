@@ -12,7 +12,7 @@ function MedicationReminder() {
                 ? initialValue.map(r => ({
                     ...r,
                     isDue: false,
-                    lastCheckedDate: null //to track when we last checked its due status for today
+                    lastCheckedDate: null
                 }))
                 : [];
         } catch (e) {

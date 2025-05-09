@@ -49,7 +49,7 @@ function App() {
         </Container>
       </Navbar>
 
-       <Container as="main" className="py-4 flex-grow-1">
+      <Container as="main" className="py-4 flex-grow-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/conditions" element={<HealthConditions />} />

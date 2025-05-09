@@ -26,7 +26,7 @@ function CalorieTracker() {
     const amount = parseInt(caloriesToAdd, 10);
     if (!isNaN(amount) && amount > 0) {
       setCalories(prevCalories => prevCalories + amount);
-      setCaloriesToAdd(''); // Clear input field after adding
+      setCaloriesToAdd('');
     } else {
       console.warn("Please enter a valid positive number for calories.");
     }
@@ -50,10 +50,10 @@ function CalorieTracker() {
         </Card.Text>
 
         <ProgressBar
-            now={progress}
-            label={`${calories} / ${DAILY_CALORIE_GOAL} kcal`}
-            variant={progress >= 100 ? 'warning' : 'success'}
-            className="mb-3"
+          now={progress}
+          label={`${calories} / ${DAILY_CALORIE_GOAL} kcal`}
+          variant={progress >= 100 ? 'warning' : 'success'}
+          className="mb-3"
         />
 
         <Form onSubmit={addCalories}>
@@ -63,7 +63,7 @@ function CalorieTracker() {
               placeholder="Add Calories"
               value={caloriesToAdd}
               onChange={handleInputChange}
-              min="1" // Basic HTML validation
+              min="1"
             />
             <Button variant="primary" type="submit" disabled={!caloriesToAdd}>
               Add
@@ -72,7 +72,7 @@ function CalorieTracker() {
         </Form>
 
         <div className="text-end">
-            <Button variant="outline-danger" size="sm" onClick={resetCalories}>Reset</Button>
+          <Button variant="outline-danger" size="sm" onClick={resetCalories}>Reset</Button>
         </div>
 
       </Card.Body>

@@ -32,9 +32,9 @@ function BMICalculator() {
     setBmi(formattedBmi);
 
     const category = bmiValue < 18.5 ? 'Underweight' :
-                     bmiValue < 25  ? 'Normal weight' :
-                     bmiValue < 30  ? 'Overweight' :
-                     'Obesity';
+      bmiValue < 25 ? 'Normal weight' :
+        bmiValue < 30 ? 'Overweight' :
+          'Obesity';
     setBmiCategory(category);
   };
 
@@ -48,10 +48,10 @@ function BMICalculator() {
 
         <Form onSubmit={calculateBmi}>
           <Form.Group as={Row} className="mb-3" controlId="weightInput">
-            <Form.Label column sm={3}> 
+            <Form.Label column sm={3}>
               Weight (kg):
             </Form.Label>
-            <Col sm={9}> 
+            <Col sm={9}>
               <Form.Control
                 type="number"
                 name="weight"
@@ -80,29 +80,27 @@ function BMICalculator() {
             </Col>
           </Form.Group>
 
-           <Row>
-             <Col sm={{ span: 9, offset: 3 }}> 
-               <Button variant="primary" type="submit">
-                 Calculate BMI
-               </Button>
-             </Col>
-           </Row>
+          <Row>
+            <Col sm={{ span: 9, offset: 3 }}>
+              <Button variant="primary" type="submit">
+                Calculate BMI
+              </Button>
+            </Col>
+          </Row>
         </Form>
 
-        {/*Results Display*/}
         {bmi !== null && (
-          <Alert variant="success" className="mt-4"> 
+          <Alert variant="success" className="mt-4">
             <Alert.Heading as="h2">Your Results</Alert.Heading>
             <p>Your BMI is: <strong>{bmi}</strong></p>
-            <p className="mb-0"> 
+            <p className="mb-0">
               This is considered: <strong>{bmiCategory}</strong>
             </p>
           </Alert>
         )}
 
-        {/*Error Message Display*/}
         {error && (
-          <Alert variant="danger" className="mt-4"> 
+          <Alert variant="danger" className="mt-4">
             {error}
           </Alert>
         )}
