@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-St Mary's Health Hub is a front-end web application developed as a part of the CPS4006 Web Design and Development module. The application aims to provide users with an intuitive platform to access health information, track personal wellness metrics, and utilize various health-related tools. It is built using React, Vite, and React Bootstrap, integrating several third-party APIs for dynamic content and employing `localStorage` for client-side data persistence.
+St Mary's Health Hub is a front-end web application. The application aims to provide users with an intuitive platform to access health information, track personal wellness metrics, and utilize various health-related tools. It is built using React, Vite, and React Bootstrap, integrating several third-party APIs for dynamic content and employing `localStorage` for client-side data persistence.
 
 ## Features Implemented
 
